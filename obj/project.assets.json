@@ -4560,11 +4560,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Suhagan/Desktop/NET23/AdvFullstack/RestaurantBookingAPI/RestaurantBookingAPI.csproj",
+      "projectUniqueName": "/Users/Suhagan/Desktop/NET23/AdvFullstack/RestaurantBookingAPI/RestaurantBookingAPI/RestaurantBookingAPI.csproj",
       "projectName": "RestaurantBookingAPI",
-      "projectPath": "/Users/Suhagan/Desktop/NET23/AdvFullstack/RestaurantBookingAPI/RestaurantBookingAPI.csproj",
+      "projectPath": "/Users/Suhagan/Desktop/NET23/AdvFullstack/RestaurantBookingAPI/RestaurantBookingAPI/RestaurantBookingAPI.csproj",
       "packagesPath": "/Users/Suhagan/.nuget/packages/",
-      "outputPath": "/Users/Suhagan/Desktop/NET23/AdvFullstack/RestaurantBookingAPI/obj/",
+      "outputPath": "/Users/Suhagan/Desktop/NET23/AdvFullstack/RestaurantBookingAPI/RestaurantBookingAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/Suhagan/.nuget/NuGet/NuGet.Config"
