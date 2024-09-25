@@ -121,6 +121,7 @@ This API is designed to manage bookings, customers, tables, and menu items for a
 ]
 ```
 **HTTP Status:** `201`
+
 ---
 
 ### 3. **Tables**
@@ -281,6 +282,7 @@ This API is designed to manage bookings, customers, tables, and menu items for a
 ```
 
 **HTTP Status:** `201`
+
 ---
 
 ## Error Handling
