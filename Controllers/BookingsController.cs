@@ -38,6 +38,7 @@ namespace RestaurantAPI.Controllers
 
             if (booking == null)
             {
+                // If no booking is found, return a 404 Not Found status
                 return NotFound();
             }
             return booking;
@@ -50,6 +51,7 @@ namespace RestaurantAPI.Controllers
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
 
+            // Returns a 201 Created response with a link to the newly created booking record
             return CreatedAtAction(nameof(GetBooking), new { id = booking.BookingId }, booking);
         }
 
@@ -59,6 +61,8 @@ namespace RestaurantAPI.Controllers
         {
             if (id != booking.BookingId)
             {
+                // If the ID in the URL doesn't match the ID in the booking object, 
+                //return a BadRequest response (400)
                 return BadRequest();
             }
 
@@ -72,6 +76,7 @@ namespace RestaurantAPI.Controllers
             {
                 if (!BookingExists(id))
                 {
+                    // Return 404 if the booking is not found
                     return NotFound();
                 }
                 else
@@ -80,6 +85,7 @@ namespace RestaurantAPI.Controllers
                 }
             }
 
+            // Return NoContent (204) to indicate a successful update
             return NoContent();
         }
 
@@ -90,12 +96,14 @@ namespace RestaurantAPI.Controllers
             var booking = await _context.Bookings.FindAsync(id);
             if (booking == null)
             {
+                // If the booking is not found, return a 404 Not Found status
                 return NotFound();
             }
 
             _context.Bookings.Remove(booking);
             await _context.SaveChangesAsync();
 
+            // Returns NoContent (204) after successful deletion
             return NoContent();
         }
 

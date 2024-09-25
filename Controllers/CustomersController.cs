@@ -34,7 +34,8 @@ namespace RestaurantBokkingAPI.Controllers
             var customer = await _context.Customers.FindAsync(id);
             if (customer == null)
             {
-                return NotFound();
+                // If no customer is found, return a 404 Not Found status
+                return NotFound(); 
             }
             return customer;
         }
@@ -46,6 +47,7 @@ namespace RestaurantBokkingAPI.Controllers
             _context.Customers.Add(customer);
             await _context.SaveChangesAsync();
 
+            // Returns a 201 Created response with a link to the newly created customer record
             return CreatedAtAction(nameof(GetCustomer), new { id = customer.GuestId }, customer);
         }
 
@@ -55,6 +57,8 @@ namespace RestaurantBokkingAPI.Controllers
         {
             if (id != customer.GuestId)
             {
+                // If the ID in the URL doesn't match the ID in the customer object, 
+                //return a BadRequest response (400)
                 return BadRequest();
             }
 
@@ -68,14 +72,16 @@ namespace RestaurantBokkingAPI.Controllers
             {
                 if (!CustomerExists(id))
                 {
-                    return NotFound();
+                    // Return 404 if the customer is not found
+                    return NotFound(); 
                 }
                 else
                 {
-                    throw;
+                    throw; // Otherwise, rethrow the exception
                 }
             }
 
+            // Return NoContent (204) to indicate a successful update
             return NoContent();
         }
 
@@ -84,6 +90,8 @@ namespace RestaurantBokkingAPI.Controllers
         public async Task<IActionResult> DeleteCustomer(int id)
         {
             var customer = await _context.Customers.FindAsync(id);
+            
+            // If the customer is not found, return a 404 Not Found status
             if (customer == null)
             {
                 return NotFound();
@@ -92,6 +100,7 @@ namespace RestaurantBokkingAPI.Controllers
             _context.Customers.Remove(customer);
             await _context.SaveChangesAsync();
 
+            // Returns NoContent (204) after successful deletion
             return NoContent();
         }
 
